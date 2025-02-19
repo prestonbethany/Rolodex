@@ -32,7 +32,7 @@
             btnSave = new Button();
             txtPhoneNumber = new TextBox();
             lblPhoneHeading = new Label();
-            textBox1 = new TextBox();
+            txtEmail = new TextBox();
             lblEmailHeading = new Label();
             txtName = new TextBox();
             lblNameHeading = new Label();
@@ -46,7 +46,7 @@
             gbCustomer.Controls.Add(btnSave);
             gbCustomer.Controls.Add(txtPhoneNumber);
             gbCustomer.Controls.Add(lblPhoneHeading);
-            gbCustomer.Controls.Add(textBox1);
+            gbCustomer.Controls.Add(txtEmail);
             gbCustomer.Controls.Add(lblEmailHeading);
             gbCustomer.Controls.Add(txtName);
             gbCustomer.Controls.Add(lblNameHeading);
@@ -65,12 +65,14 @@
             btnSave.TabIndex = 6;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // txtPhoneNumber
             // 
+            txtPhoneNumber.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtPhoneNumber.Location = new Point(116, 108);
             txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(294, 23);
+            txtPhoneNumber.Size = new Size(332, 23);
             txtPhoneNumber.TabIndex = 5;
             // 
             // lblPhoneHeading
@@ -82,12 +84,13 @@
             lblPhoneHeading.TabIndex = 4;
             lblPhoneHeading.Text = "Phone Number";
             // 
-            // textBox1
+            // txtEmail
             // 
-            textBox1.Location = new Point(116, 78);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(294, 23);
-            textBox1.TabIndex = 3;
+            txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtEmail.Location = new Point(116, 78);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(332, 23);
+            txtEmail.TabIndex = 3;
             // 
             // lblEmailHeading
             // 
@@ -100,9 +103,10 @@
             // 
             // txtName
             // 
+            txtName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtName.Location = new Point(116, 42);
             txtName.Name = "txtName";
-            txtName.Size = new Size(294, 23);
+            txtName.Size = new Size(332, 23);
             txtName.TabIndex = 1;
             // 
             // lblNameHeading
@@ -135,7 +139,7 @@
         private Button btnSave;
         private TextBox txtPhoneNumber;
         private Label lblPhoneHeading;
-        private TextBox textBox1;
+        private TextBox txtEmail;
         private Label lblEmailHeading;
     }
 }
