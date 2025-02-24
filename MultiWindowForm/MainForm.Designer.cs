@@ -31,11 +31,12 @@
             components = new System.ComponentModel.Container();
             btnNew = new Button();
             dgvCustomers = new DataGridView();
-            customerBindingSource = new BindingSource(components);
             customerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            customerBindingSource = new BindingSource(components);
+            btnEditCustomer = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             SuspendLayout();
@@ -62,10 +63,6 @@
             dgvCustomers.Size = new Size(580, 384);
             dgvCustomers.TabIndex = 1;
             // 
-            // customerBindingSource
-            // 
-            customerBindingSource.DataSource = typeof(Customer);
-            // 
             // customerIdDataGridViewTextBoxColumn
             // 
             customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
@@ -90,14 +87,29 @@
             emailDataGridViewTextBoxColumn.HeaderText = "Email";
             emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             // 
-            // Form1
+            // customerBindingSource
+            // 
+            customerBindingSource.DataSource = typeof(Customer);
+            // 
+            // btnEditCustomer
+            // 
+            btnEditCustomer.Location = new Point(368, 12);
+            btnEditCustomer.Name = "btnEditCustomer";
+            btnEditCustomer.Size = new Size(103, 23);
+            btnEditCustomer.TabIndex = 2;
+            btnEditCustomer.Text = "Edit Customer";
+            btnEditCustomer.UseVisualStyleBackColor = true;
+            btnEditCustomer.Click += btnEditCustomer_Click;
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(598, 437);
+            Controls.Add(btnEditCustomer);
             Controls.Add(dgvCustomers);
             Controls.Add(btnNew);
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
@@ -113,5 +125,6 @@
         private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private BindingSource customerBindingSource;
+        private Button btnEditCustomer;
     }
 }

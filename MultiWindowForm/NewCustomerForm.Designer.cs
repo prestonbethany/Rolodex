@@ -36,6 +36,7 @@
             lblEmailHeading = new Label();
             txtName = new TextBox();
             lblNameHeading = new Label();
+            btnClear = new Button();
             gbCustomer.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             // 
             gbCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gbCustomer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            gbCustomer.Controls.Add(btnClear);
             gbCustomer.Controls.Add(btnSave);
             gbCustomer.Controls.Add(txtPhoneNumber);
             gbCustomer.Controls.Add(lblPhoneHeading);
@@ -118,6 +120,16 @@
             lblNameHeading.TabIndex = 0;
             lblNameHeading.Text = "Name";
             // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(373, 144);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(75, 23);
+            btnClear.TabIndex = 7;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
             // NewCustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -141,5 +153,6 @@
         private Label lblPhoneHeading;
         private TextBox txtEmail;
         private Label lblEmailHeading;
+        private Button btnClear;
     }
 }
