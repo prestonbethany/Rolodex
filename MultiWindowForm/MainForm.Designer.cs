@@ -59,9 +59,12 @@
             dgvCustomers.Columns.AddRange(new DataGridViewColumn[] { customerIdDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn });
             dgvCustomers.DataSource = customerBindingSource;
             dgvCustomers.Location = new Point(6, 41);
+            dgvCustomers.MultiSelect = false;
             dgvCustomers.Name = "dgvCustomers";
+            dgvCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCustomers.Size = new Size(580, 384);
             dgvCustomers.TabIndex = 1;
+            dgvCustomers.CellContentClick += dgvCustomers_CellContentClick;
             // 
             // customerIdDataGridViewTextBoxColumn
             // 

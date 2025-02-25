@@ -32,11 +32,24 @@ namespace MultiWindowForm
         public void EditCustomer(int id, Customer updatedCustomer)
         {
             MessageBox.Show("Main form is editing the customer now.");
+
+            //find customer out of list by id
+            var cust = _customerList.Find(c => c.CustomerId == id);
+
+            if (cust != null)
+            {
+                //process the discovered customer
+                cust.Name = updatedCustomer.Name;
+                cust.PhoneNumber = updatedCustomer.PhoneNumber;
+                cust.Email = updatedCustomer.Email;
+
+                reloadDataGrid();
+            }
         }
 
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
-            
+
             //get the row out of datagrid view.
             Customer cust;
 
@@ -53,6 +66,11 @@ namespace MultiWindowForm
 
             //show the form
             _customerForm.Show();
+        }
+
+        private void dgvCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEditCustomer.Visible = true;
         }
     }
 }
