@@ -48,35 +48,51 @@ namespace MultiWindowForm
 
         private void CreateCustomer()
         {
-            // validation
-
-            // create a customer.
-            // load it with data from the form.
-            Customer customer = new Customer
+            if (IsValidCustomer())
             {
-                CustomerId = CustomerCount,
-                Name = txtName.Text,
-                PhoneNumber = txtPhoneNumber.Text,
-                Email = txtEmail.Text,
-            };
+                // create a customer.
+                // load it with data from the form.
+                Customer customer = new Customer
+                {
+                    CustomerId = CustomerCount,
+                    Name = txtName.Text,
+                    PhoneNumber = txtPhoneNumber.Text,
+                    Email = txtEmail.Text,
+                };
 
-            // send data to AddCustomer on parent form.
-            _mainForm.AddCustomer(customer);
-            CustomerCount++;
+                // send data to AddCustomer on parent form.
+                _mainForm.AddCustomer(customer);
+                CustomerCount++;
+            }
+        }
+
+        private bool IsValidCustomer()
+        {
+            if (txtName.Text == "" || txtEmail.Text == "" || txtPhoneNumber.Text == "")
+            {
+                MessageBox.Show("You need to include a name, email, and phone number");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         private void EditCustomer()
         {
             MessageBox.Show("Form is being edited");
-            _mainForm.EditCustomer(CurrentSelectionId, new Customer
-            {
-                CustomerId = CurrentSelectionId,
-                Name = txtName.Text,
-                PhoneNumber = txtPhoneNumber.Text,
-                Email = txtEmail.Text,
-            });
-
-            CurrentSelectionId = -1;
-            ToggleEdit(false);
+            if (IsValidCustomer())
+            { 
+                _mainForm.EditCustomer(CurrentSelectionId, new Customer
+                {
+                    CustomerId = CurrentSelectionId,
+                    Name = txtName.Text,
+                    PhoneNumber = txtPhoneNumber.Text,
+                    Email = txtEmail.Text,
+                });
+                CurrentSelectionId = -1;
+                ToggleEdit(false);
+            }
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
